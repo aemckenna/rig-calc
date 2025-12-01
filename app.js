@@ -59,3 +59,23 @@ function initFixtureSelects() {
 
   populateModeSelect(getSelectedFixture());
 }
+
+function getSelectedFixture() {
+  const id = fixtureTypeSelect.value;
+  return FIXTURES.find((fx) => fx.id === id) || FIXTURES[0];
+}
+function populateModeSelect(fixture) {
+  fixtureModeSelect.innerHTML = "";
+  fixture.modes.forEach((mode, index) => {
+    const option = document.createElement("option");
+    option.value = mode.name;
+    option.textContent = `${mode.name} (${mode.channels} ch, ${mode.powerWatts} W)`;
+    if (index === 0) option.selected = true;
+    fixtureModeSelect.appendChild(option);
+  });
+}
+
+function handleFixtureTypeChange() {
+  const fixture = getSelectedFixture();
+  populateModeSelect(fixture);
+}
