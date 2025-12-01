@@ -164,6 +164,7 @@ body {
   box-shadow: 0 0 0 1px rgba(255, 77, 106, 0.4);
 }
 
+/* Form */
 .form-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -228,6 +229,7 @@ body {
   font-size: 0.85rem;
 }
 
+/* Table */
 .table-wrapper {
   margin-top: 1rem;
   border-radius: 10px;
