@@ -126,6 +126,7 @@ function handleAddFixture(event) {
     );
     return;
   }
+
   const wattsPerFixture = mode.powerWatts;
   const totalWatts = wattsPerFixture * qty;
 
@@ -174,6 +175,7 @@ function renderRigTable() {
     emptyRigMessage.style.display = "block";
     return;
   }
+
   emptyRigMessage.style.display = "none";
 
   rig.forEach((item, index) => {
@@ -348,6 +350,21 @@ function renderPowerSummary() {
   });
 }
 
+function getNextAddressForUniverse(universe) {
+  let maxEnd = 0;
+  rig.forEach((item) => {
+    if (item.universe === universe && item.endAddress > maxEnd) {
+      maxEnd = item.endAddress;
+    }
+  });
+
+  const candidate = maxEnd + 1;
+  if (candidate > 512 || candidate <= 0) {
+    return 1;
+  }
+  return candidate;
+}
+
 /* Storage */
 
 const STORAGE_KEY = "dmx_power_calc_rig";
@@ -377,21 +394,6 @@ function loadRigFromStorage() {
   } catch (err) {
     console.warn("Unable to load rig from localStorage:", err);
   }
-}
-
-function getNextAddressForUniverse(universe) {
-  let maxEnd = 0;
-  rig.forEach((item) => {
-    if (item.universe === universe && item.endAddress > maxEnd) {
-      maxEnd = item.endAddress;
-    }
-  });
-
-  const candidate = maxEnd + 1;
-  if (candidate > 512 || candidate <= 0) {
-    return 1;
-  }
-  return candidate;
 }
 
 function handleLoadDemoRig() {
