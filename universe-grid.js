@@ -98,9 +98,7 @@ function renderFixtureLegend(universe, fixtures, colorMap) {
 
   fixtureLegend.innerHTML = "";
 
-  if (!universe || fixtures.length === 0) {
-    return;
-  }
+  if (!universe || fixtures.length === 0) return;
 
   fixtures.forEach((item) => {
     const row = document.createElement("span");
@@ -108,7 +106,7 @@ function renderFixtureLegend(universe, fixtures, colorMap) {
 
     const swatch = document.createElement("span");
     swatch.className = "legend-swatch";
-    swatch.style.background = colorMap.get(item.id) || "rgba(255,255,255,0.1)";
+    swatch.style.background = colorMap.get(item.id) || "rgba(255,255,255,0.15)";
 
     const label = document.createElement("span");
     label.textContent =
@@ -122,14 +120,15 @@ function renderFixtureLegend(universe, fixtures, colorMap) {
 }
 
 function buildUniverseGridData(universe) {
-  const cells = new Array(512).fill(null).map(() => []);
+  const cells = Array.from({ length: 512 }, () => []);
 
   if (!universe) return cells;
 
   rig.forEach((item) => {
     if (item.universe !== universe) return;
-    const start = Math.max(1, item.startAddress);
-    const end = Math.min(512, item.endAddress);
+
+    const start = Math.max(1, Number(item.startAddress) || 1);
+    const end = Math.min(512, Number(item.endAddress) || 512);
 
     for (let ch = start; ch <= end; ch++) {
       cells[ch - 1].push(item);
@@ -195,7 +194,7 @@ function renderUniverseGrid(universe) {
         cell.style.backgroundImage = `linear-gradient(
           135deg,
           ${lineColor},
-          #ff4d6a
+          rgba(255,77,106,0.9)
         )`;
         cell.style.color = "#020305";
       }
@@ -209,7 +208,7 @@ function renderUniverseGrid(universe) {
       const lines = fixturesHere
         .map(
           (f) =>
-            `${f.fixtureName} (${f.modeName}), qty ${f.qty}, addr ${f.startAddress}–${f.endAddress}`
+            `${f.fixtureName} (${f.modeName}), qty ${f.qty}, addr ${f.startAddress}-${f.endAddress}`
         )
         .join("\n");
       cell.title = `Channel ${chan}\n${lines}`;
@@ -224,7 +223,7 @@ function renderUniverseGrid(universe) {
   summary.className = "muted universe-grid-summary";
   summary.textContent =
     `Universe ${universe}: ${usedCount} of 512 channels used` +
-    (overlapCount > 0 ? ` – ${overlapCount} overlapping channels` : "");
+    (overlapCount > 0 ? ` - ${overlapCount} overlapping channels` : "");
 
   universeGridContainer.appendChild(gridEl);
   universeGridContainer.appendChild(summary);
