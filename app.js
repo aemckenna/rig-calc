@@ -155,3 +155,12 @@ function clearFormMessage() {
   formMessage.textContent = "";
   formMessage.classList.remove("form-message--error", "form-message--success");
 }
+
+/* Rig Rendering */
+function renderRigTable() {
+  rigTableBody.innerHTML = "";
+
+  if (rig.length === 0) {
+    emptyRigMessage.style.display = "block";
+    return;
+  }
