@@ -151,3 +151,13 @@ function renderUniverseGrid(universe) {
 
     gridEl.appendChild(cell);
   }
+
+  const summary = document.createElement("p");
+  summary.className = "muted universe-grid-summary";
+  summary.textContent =
+    `Universe ${universe}: ${usedCount} of 512 channels used` +
+    (overlapCount > 0 ? ` – ${overlapCount} overlapping channels` : "");
+
+  universeGridContainer.appendChild(gridEl);
+  universeGridContainer.appendChild(summary);
+}
