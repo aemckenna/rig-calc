@@ -92,3 +92,17 @@ function buildUniverseGridData(universe) {
 
   return cells;
 }
+
+function renderUniverseGrid(universe) {
+  if (!universeGridContainer) return;
+
+  universeGridContainer.innerHTML = "";
+
+  if (!universe) {
+    const p = document.createElement("p");
+    p.className = "muted universe-grid-summary";
+    p.textContent =
+      "Enter a valid universe number from your saved rig to display the channel grid.";
+    universeGridContainer.appendChild(p);
+    return;
+  }
