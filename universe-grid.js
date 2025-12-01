@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadRigFromStorage();
 
-    const usedUniverses = getUsedUniverses();
+  const usedUniverses = getUsedUniverses();
   if (usedUniverses.length > 0) {
     const firstUniverse = usedUniverses[0];
     gridUniverseInput.value = String(firstUniverse);
@@ -24,3 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
     updateHintWithUsedUniverses([]);
     renderUniverseGrid(null);
   }
+
+  if (gridUniverseForm) {
+    gridUniverseForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const u = parseInt(gridUniverseInput.value, 10);
+      if (!u || u <= 0) {
+        renderUniverseGrid(null);
+      } else {
+        renderUniverseGrid(u);
+      }
+    });
+  }
+});
