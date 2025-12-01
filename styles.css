@@ -135,3 +135,10 @@ body {
   background: rgba(255, 77, 106, 0.1);
   box-shadow: 0 0 0 1px rgba(255, 77, 106, 0.4);
 }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+  margin-top: 1rem;
+}
