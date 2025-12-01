@@ -508,3 +508,12 @@ td:last-child {
   background: rgba(255, 255, 255, 0.02);
   color: rgba(255, 255, 255, 0.1);
 }
+
+.universe-grid-cell--used {
+  background: linear-gradient(
+    135deg,
+    rgba(77, 163, 255, 0.7),
+    rgba(132, 204, 255, 0.9)
+  );
+  color: #020305;
+}
