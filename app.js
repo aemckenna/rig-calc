@@ -164,7 +164,7 @@ function renderRigTable() {
     emptyRigMessage.style.display = "block";
     return;
   }
-    emptyRigMessage.style.display = "none";
+  emptyRigMessage.style.display = "none";
 
   rig.forEach((item, index) => {
     const tr = document.createElement("tr");
@@ -186,5 +186,13 @@ function renderRigTable() {
         </button>
       </td>
     `;
-        rigTableBody.appendChild(tr);
+    rigTableBody.appendChild(tr);
   });
+  // Attach delete handlers
+  rigTableBody.querySelectorAll(".delete-row-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = parseInt(btn.getAttribute("data-id"), 10);
+      deleteRigItem(id);
+    });
+  });
+}
