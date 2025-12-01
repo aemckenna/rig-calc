@@ -298,3 +298,21 @@ tbody tr:hover {
   overflow: hidden;
   position: relative;
 }
+
+.universe-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  border-radius: inherit;
+  transform-origin: left center;
+  transition: width 0.18s ease-out;
+}
+
+.universe-bar-fill--over {
+  background: linear-gradient(90deg, var(--danger), #ff9c5b);
+}
+
+.universe-warning {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--danger);
+}
