@@ -332,6 +332,29 @@ tbody tr:hover {
   padding: 0.55rem 0.65rem 0.6rem;
 }
 
+.power-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.power-card-circuit {
+  font-weight: 600;
+}
+
+.power-card-amps {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.power-card-body {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 .power-badge {
   display: inline-flex;
   align-items: center;
