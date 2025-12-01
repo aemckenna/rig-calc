@@ -266,3 +266,26 @@ tbody tr:hover {
   background: rgba(255, 77, 106, 0.15);
   color: var(--danger);
 }
+
+/* Universe */
+.universe-usage {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.universe-row {
+  background: var(--bg-panel-alt);
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.universe-label {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-muted);
+}
