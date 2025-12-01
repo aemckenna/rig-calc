@@ -332,6 +332,17 @@ tbody tr:hover {
   padding: 0.55rem 0.65rem 0.6rem;
 }
 
+.power-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .power-badge--ok {
   background: rgba(77, 255, 178, 0.12);
   color: #7dffc1;
