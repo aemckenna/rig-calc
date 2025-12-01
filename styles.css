@@ -24,7 +24,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, #15192a, #101322 55%);
+  background: radial-gradient(circle at top, #111527, #05060a 55%);
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.5;
@@ -51,6 +51,12 @@ body {
 .site-header h1 {
   margin: 0;
   font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.tagline {
+  margin: 0.15rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .layout {
