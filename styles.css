@@ -517,3 +517,8 @@ td:last-child {
   );
   color: #020305;
 }
+
+.universe-grid-cell--overlap {
+  background: linear-gradient(135deg, #ff4d6a, #ffcb3c);
+  color: #020305;
+}
