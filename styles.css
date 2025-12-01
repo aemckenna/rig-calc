@@ -40,3 +40,13 @@ body {
   grid-auto-rows: minmax(min-content, max-content);
   gap: 1.5rem;
 }
+
+.panel {
+  background: radial-gradient(circle at top left, #22273a, #141725 60%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 1.25rem 1.3rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
