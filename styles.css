@@ -24,7 +24,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, #aebdff, #97acff 55%);
+  background: radial-gradient(circle at top, #15192a, #101322 55%);
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.5;
