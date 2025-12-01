@@ -11,6 +11,7 @@
   --text-muted: #b3b7c9;
   --radius: 12px;
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --font-body: arial;
 }
 
 *,
