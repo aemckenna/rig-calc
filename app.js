@@ -355,6 +355,21 @@ function saveRigToStorage() {
   }
 }
 
+function loadRigFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (Array.isArray(data.rig)) {
+      rig = data.rig;
+      nextRigId =
+        typeof data.nextRigId === "number" ? data.nextRigId : rig.length + 1;
+    }
+  } catch (err) {
+    console.warn("Unable to load rig from localStorage:", err);
+  }
+}
+
 function renderAll() {
   renderRigTable();
   renderUniverseUsage();
