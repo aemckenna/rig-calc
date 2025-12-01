@@ -180,3 +180,22 @@ body {
   gap: 0.8rem;
   margin-top: 0.3rem;
 }
+
+.form-message {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  margin: 0.2rem 0 0;
+}
+
+.form-message--error {
+  color: var(--danger);
+}
+
+.form-message--success {
+  color: var(--accent-strong);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
