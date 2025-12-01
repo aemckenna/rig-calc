@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cacheDom();
   initFixtureSelects();
   renderAll();
+  loadRigFromStorage();
 
   fixtureTypeSelect.addEventListener("change", handleFixtureTypeChange);
   fixtureForm.addEventListener("submit", handleAddFixture);
