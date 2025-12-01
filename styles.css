@@ -380,3 +380,27 @@ tbody tr:hover {
   background: rgba(255, 77, 106, 0.18);
   color: #ffb1bc;
 }
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panel-wide {
+    grid-column: auto;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .site-header {
+    position: static;
+  }
+}
