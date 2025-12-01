@@ -106,3 +106,28 @@ function renderUniverseGrid(universe) {
     universeGridContainer.appendChild(p);
     return;
   }
+
+  const cells = buildUniverseGridData(universe);
+
+  let usedCount = 0;
+  let overlapCount = 0;
+
+  const gridEl = document.createElement("div");
+  gridEl.className = "universe-grid";
+
+  for (let i = 0; i < 512; i++) {
+    const chan = i + 1;
+    const fixturesHere = cells[i];
+    const cell = document.createElement("div");
+    let className = "universe-grid-cell";
+
+    if (fixturesHere.length === 0) {
+      className += " universe-grid-cell--empty";
+    } else if (fixturesHere.length === 1) {
+      className += " universe-grid-cell--used";
+      usedCount++;
+    } else {
+      className += " universe-grid-cell--overlap";
+      usedCount++;
+      overlapCount++;
+    }
