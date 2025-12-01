@@ -142,3 +142,25 @@ body {
   gap: 0.9rem 1rem;
   margin-top: 1rem;
 }
+
+.form-grid label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-grid select,
+.form-grid input {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 10, 20, 0.9);
+  padding: 0.4rem 0.55rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
