@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, #111527, #05060a 55%);
+  background: radial-gradient(circle at top, #aebdff, #97acff 55%);
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.5;
@@ -198,4 +198,37 @@ body {
 .muted {
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+.table-wrapper {
+  margin-top: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0c0f1d;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+thead {
+  background: rgba(23, 31, 60, 0.95);
+}
+
+th,
+td {
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
