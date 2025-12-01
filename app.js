@@ -188,11 +188,17 @@ function renderRigTable() {
     `;
     rigTableBody.appendChild(tr);
   });
-  // Attach delete handlers
+
   rigTableBody.querySelectorAll(".delete-row-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = parseInt(btn.getAttribute("data-id"), 10);
       deleteRigItem(id);
     });
   });
+}
+
+function deleteRigItem(id) {
+  rig = rig.filter((item) => item.id !== id);
+  saveRigToStorage();
+  renderAll();
 }
