@@ -271,12 +271,12 @@ tbody tr:nth-child(odd) {
   background: rgba(8, 11, 22, 0.96);
 }
 
-td:last-child {
-  text-align: right;
-}
-
 tbody tr:hover {
   background: rgba(29, 40, 78, 0.9);
+}
+
+td:last-child {
+  text-align: right;
 }
 
 .delete-row-btn {
