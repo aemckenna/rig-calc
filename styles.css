@@ -7,6 +7,8 @@
   --accent-soft: rgba(77, 163, 255, 0.15);
   --accent-strong: #ffcb3c;
   --danger: #ff4d6a;
+  --text: #f5f6fb;
+  --text-muted: #b3b7c9;
 }
 
 *,
