@@ -374,4 +374,5 @@ function loadRigFromStorage() {
 function renderAll() {
   renderRigTable();
   renderUniverseUsage();
+  renderPowerSummary();
 }
