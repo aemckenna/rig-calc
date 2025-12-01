@@ -271,11 +271,6 @@ function renderUniverseUsage() {
   });
 }
 
-function renderAll() {
-  renderRigTable();
-  renderUniverseUsage();
-}
-
 /* Power */
 
 function calculatePowerByCircuit() {
@@ -296,4 +291,55 @@ function calculatePowerByCircuit() {
   });
 
   return circuits;
+}
+
+function renderPowerSummary() {
+  powerSummaryContainer.innerHTML = "";
+
+  const circuits = calculatePowerByCircuit();
+  const names = Object.keys(circuits).sort((a, b) => a.localeCompare(b));
+
+  if (names.length === 0) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = "Assign circuits when adding fixtures to see load.";
+    powerSummaryContainer.appendChild(p);
+    return;
+  }
+
+  names.forEach((name) => {
+    const { watts, amps } = circuits[name];
+    const roundedAmps = Math.round(amps * 10) / 10;
+
+    let badgeClass = "power-badge--ok";
+    let badgeText = "Within 15A";
+    if (amps > 20) {
+      badgeClass = "power-badge--over";
+      badgeText = "Over 20A";
+    } else if (amps > 15) {
+      badgeClass = "power-badge--warn";
+      badgeText = "15A-20A";
+    }
+
+    const card = document.createElement("article");
+    card.className = "power-card";
+
+    card.innerHTML = `
+      <div class="power-card-header">
+        <div class="power-card-circuit">${escapeHtml(name)}</div>
+        <div class="power-card-amps">${roundedAmps.toFixed(1)} A</div>
+      </div>
+      <div class="power-card-body">
+        <div>${watts} W @ ${VOLTAGE} V</div>
+        <div class="power-badge ${badgeClass}">${badgeText}</div>
+      </div>
+    `;
+
+    powerSummaryContainer.appendChild(card);
+  });
+}
+
+function renderAll() {
+  renderRigTable();
+  renderUniverseUsage();
 }
