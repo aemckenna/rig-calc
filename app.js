@@ -142,5 +142,16 @@ function handleAddFixture(event) {
 
   const nextAddress = getNextAddressForUniverse(universe);
   startAddressInput.value = nextAddress;
-  showFormMessage("Fixture line added to rig.", false);
+  showFormMessage("Fixture added to rig.", false);
+}
+
+function showFormMessage(message, isError) {
+  formMessage.textContent = message;
+  formMessage.classList.toggle("form-message--error", !!isError);
+  formMessage.classList.toggle("form-message--success", !isError);
+}
+
+function clearFormMessage() {
+  formMessage.textContent = "";
+  formMessage.classList.remove("form-message--error", "form-message--success");
 }
