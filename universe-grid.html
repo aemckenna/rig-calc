@@ -18,10 +18,8 @@
             <p class="tagline">
             Visualize DMX channel usage for a single universe, based on the saved rig.
             </p>
-        </div>
-        <a href="index.html" class="button button-secondary">
-            ← Back to Calculator
-        </a>
+       </div>
+        <a href="index.html" class="button button-secondary">Back to Calculator</a>
         </div>
     </header>
 
@@ -44,4 +42,34 @@
               required
             />
           </label>
+
+            <div class="form-actions">
+            <button type="submit" class="button">
+              Show Universe
+            </button>
+          </div>
+        </form>
+
+        <div class="universe-grid-legend">
+          <span class="legend-item">
+            <span class="legend-swatch legend-swatch--empty"></span> Empty
+          </span>
+          <span class="legend-item">
+            <span class="legend-swatch legend-swatch--used"></span> Used
+          </span>
+          <span class="legend-item">
+            <span class="legend-swatch legend-swatch--overlap"></span> Overlap
+          </span>
+        </div>
+
+        <div id="universeGrid" class="universe-grid-container">
+        </div>
+      </section>
+    </main>
+
+        <footer class="site-footer">
+      <small>
+        Universe Grid View
+    </footer>
+</body>
 </html>
