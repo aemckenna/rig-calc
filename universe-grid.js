@@ -50,3 +50,13 @@ function loadRigFromStorage() {
     console.warn("Unable to load rig from storage:", err);
   }
 }
+
+function getUsedUniverses() {
+  const set = new Set();
+  rig.forEach((item) => {
+    if (item.universe && item.universe > 0) {
+      set.add(item.universe);
+    }
+  });
+  return Array.from(set).sort((a, b) => a - b);
+}
