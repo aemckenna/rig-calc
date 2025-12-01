@@ -93,6 +93,34 @@ function buildFixtureColorMap(fixtures) {
   return colorMap;
 }
 
+function renderFixtureLegend(universe, fixtures, colorMap) {
+  if (!fixtureLegend) return;
+
+  fixtureLegend.innerHTML = "";
+
+  if (!universe || fixtures.length === 0) {
+    return;
+  }
+
+  fixtures.forEach((item) => {
+    const row = document.createElement("span");
+    row.className = "legend-item";
+
+    const swatch = document.createElement("span");
+    swatch.className = "legend-swatch";
+    swatch.style.background = colorMap.get(item.id) || "rgba(255,255,255,0.1)";
+
+    const label = document.createElement("span");
+    label.textContent =
+      `${item.fixtureName} (${item.modeName}) - ` +
+      `U${item.universe} ${item.startAddress}-${item.endAddress}`;
+
+    row.appendChild(swatch);
+    row.appendChild(label);
+    fixtureLegend.appendChild(row);
+  });
+}
+
 function buildUniverseGridData(universe) {
   const cells = new Array(512).fill(null).map(() => []);
 
