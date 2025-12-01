@@ -371,6 +371,21 @@ function loadRigFromStorage() {
   }
 }
 
+function getNextAddressForUniverse(universe) {
+  let maxEnd = 0;
+  rig.forEach((item) => {
+    if (item.universe === universe && item.endAddress > maxEnd) {
+      maxEnd = item.endAddress;
+    }
+  });
+
+  const candidate = maxEnd + 1;
+  if (candidate > 512 || candidate <= 0) {
+    return 1;
+  }
+  return candidate;
+}
+
 function handleLoadDemoRig() {
   rig = [
     {
