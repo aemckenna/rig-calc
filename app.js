@@ -23,6 +23,7 @@ let powerSummaryContainer;
 document.addEventListener("DOMContentLoaded", () => {
   cacheDom();
   initFixtureSelects();
+  renderAll();
 
   fixtureTypeSelect.addEventListener("change", handleFixtureTypeChange);
   fixtureForm.addEventListener("submit", handleAddFixture);
@@ -201,4 +202,23 @@ function deleteRigItem(id) {
   rig = rig.filter((item) => item.id !== id);
   saveRigToStorage();
   renderAll();
+}
+
+/* DMX Universe */
+function calculateUniverseUsage() {
+  const usage = {}; // { [universe]: totalChannels }
+
+  rig.forEach((item) => {
+    if (!usage[item.universe]) {
+      usage[item.universe] = 0;
+    }
+    usage[item.universe] += item.totalChannels;
+  });
+
+  return usage;
+}
+
+function renderAll() {
+  renderRigTable();
+  renderUniverseUsage();
 }
