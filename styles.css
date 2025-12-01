@@ -1,0 +1,32 @@
+.site-header {
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(135deg, #15192a, #101322);
+  padding: 1.25rem 1.25rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+  grid-auto-rows: minmax(min-content, max-content);
+  gap: 1.5rem;
+}
