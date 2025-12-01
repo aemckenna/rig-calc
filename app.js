@@ -164,3 +164,25 @@ function renderRigTable() {
     emptyRigMessage.style.display = "block";
     return;
   }
+    emptyRigMessage.style.display = "none";
+
+  rig.forEach((item, index) => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${escapeHtml(item.fixtureName)}</td>
+      <td>${escapeHtml(item.modeName)}</td>
+      <td>${item.qty}</td>
+      <td>${item.universe}</td>
+      <td>${item.startAddress}</td>
+      <td>${item.endAddress}</td>
+      <td>${item.totalChannels}</td>
+      <td>${item.totalWatts}</td>
+      <td>${escapeHtml(item.circuitName)}</td>
+      <td>
+        <button class="delete-row-btn" data-id="${item.id}" title="Remove line">
+          ×
+        </button>
+      </td>
+    `;
