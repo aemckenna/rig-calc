@@ -102,6 +102,14 @@ function handleAddFixture(event) {
   let start = parseInt(startAddressInput.value, 10) || 0;
   const circuit = circuitNameInput.value.trim();
 
+  if (qty <= 0) {
+    showFormMessage("Quantity must be at least 1.", true);
+    return;
+  }
+  if (universe <= 0) {
+    showFormMessage("Universe must be a positive number.", true);
+    return;
+  }
   if (start <= 0 || start > 512) {
     showFormMessage("Start address must be between 1 and 512.", true);
     return;
