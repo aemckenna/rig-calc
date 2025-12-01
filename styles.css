@@ -244,3 +244,14 @@ tbody tr:nth-child(odd) {
 tbody tr:hover {
   background: rgba(29, 40, 78, 0.9);
 }
+
+.delete-row-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.1rem 0.2rem;
+  border-radius: 6px;
+  transition: background 0.1s ease, color 0.1s ease;
+}
