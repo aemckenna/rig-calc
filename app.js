@@ -206,7 +206,7 @@ function deleteRigItem(id) {
 
 /* DMX Universe */
 function calculateUniverseUsage() {
-  const usage = {}; // { [universe]: totalChannels }
+  const usage = {};
 
   rig.forEach((item) => {
     if (!usage[item.universe]) {
@@ -274,4 +274,26 @@ function renderUniverseUsage() {
 function renderAll() {
   renderRigTable();
   renderUniverseUsage();
+}
+
+/* Power */
+
+function calculatePowerByCircuit() {
+  const circuits = {};
+
+  rig.forEach((item) => {
+    const key = item.circuitName || "Unassigned";
+    if (!circuits[key]) {
+      circuits[key] = { watts: 0 };
+    }
+    circuits[key].watts += item.totalWatts;
+  });
+
+  // Convert to amps
+  Object.keys(circuits).forEach((name) => {
+    const watts = circuits[name].watts;
+    circuits[name].amps = watts / VOLTAGE;
+  });
+
+  return circuits;
 }
