@@ -100,3 +100,9 @@ body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
   transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
 }
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+}
