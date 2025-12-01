@@ -5,12 +5,14 @@ let universeGridContainer;
 let gridUniverseInput;
 let gridUniverseForm;
 let gridUniverseHint;
+let fixtureLegend;
 
 document.addEventListener("DOMContentLoaded", () => {
   universeGridContainer = document.getElementById("universeGrid");
   gridUniverseInput = document.getElementById("gridUniverseInput");
   gridUniverseForm = document.getElementById("gridUniverseForm");
   gridUniverseHint = document.getElementById("gridUniverseHint");
+  fixtureLegend = document.getElementById("fixtureLegend");
 
   loadRigFromStorage();
 
@@ -73,6 +75,22 @@ function updateHintWithUsedUniverses(universes) {
       universes.join(", ") +
       ". You can enter any of these above.";
   }
+}
+
+function getFixturesForUniverse(universe) {
+  return rig.filter((item) => item.universe === universe);
+}
+
+function buildFixtureColorMap(fixtures) {
+  const colorMap = new Map();
+
+  fixtures.forEach((item, index) => {
+    const hue = (index * 47) % 360;
+    const color = `hsl(${hue}, 75%, 55%)`;
+    colorMap.set(item.id, color);
+  });
+
+  return colorMap;
 }
 
 function buildUniverseGridData(universe) {
