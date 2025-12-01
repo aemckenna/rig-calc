@@ -64,6 +64,7 @@ function getSelectedFixture() {
   const id = fixtureTypeSelect.value;
   return FIXTURES.find((fx) => fx.id === id) || FIXTURES[0];
 }
+
 function populateModeSelect(fixture) {
   fixtureModeSelect.innerHTML = "";
   fixture.modes.forEach((mode, index) => {
@@ -78,4 +79,68 @@ function populateModeSelect(fixture) {
 function handleFixtureTypeChange() {
   const fixture = getSelectedFixture();
   populateModeSelect(fixture);
+}
+
+/* Forms */
+function handleAddFixture(event) {
+  event.preventDefault();
+  clearFormMessage();
+
+  const fixture = getSelectedFixture();
+  const modeName = fixtureModeSelect.value.trim();
+  const mode = fixture.modes.find((m) => m.name === modeName);
+
+  if (!mode) {
+    showFormMessage("Invalid mode selection.", true);
+    return;
+  }
+
+  const qty = parseInt(fixtureQtyInput.value, 10) || 0;
+  const universe = parseInt(dmxUniverseInput.value, 10) || 0;
+  let start = parseInt(startAddressInput.value, 10) || 0;
+  const circuit = circuitNameInput.value.trim();
+
+  if (start <= 0 || start > 512) {
+    showFormMessage("Start address must be between 1 and 512.", true);
+    return;
+  }
+
+  const channelsPerFixture = mode.channels;
+  const totalChannels = channelsPerFixture * qty;
+  const endAddress = start + channelsPerFixture * qty - 1;
+
+  if (endAddress > 512) {
+    showFormMessage(
+      `Channel footprint (ends at ${endAddress}) exceeds 512 in universe ${universe}. Adjust start, mode, or quantity.`,
+      true
+    );
+    return;
+  }
+  const wattsPerFixture = mode.powerWatts;
+  const totalWatts = wattsPerFixture * qty;
+
+  const rigItem = {
+    id: nextRigId++,
+    fixtureId: fixture.id,
+    fixtureName: `${fixture.brand} - ${fixture.name}`,
+    modeName,
+    qty,
+    universe,
+    startAddress: start,
+    endAddress,
+    channelsPerFixture,
+    totalChannels,
+    wattsPerFixture,
+    totalWatts,
+    circuitName: circuit || "Unassigned",
+    voltage: fixture.defaultVoltage || VOLTAGE,
+  };
+
+  rig.push(rigItem);
+  saveRigToStorage();
+  renderAll();
+
+  const nextAddress = getNextAddressForUniverse(universe);
+  startAddressInput.value = nextAddress;
+  showFormMessage("Fixture line added to rig.", false);
 }
