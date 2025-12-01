@@ -22,6 +22,7 @@ let powerSummaryContainer;
 
 document.addEventListener("DOMContentLoaded", () => {
   cacheDom();
+  initFixtureSelects();
 
   fixtureTypeSelect.addEventListener("change", handleFixtureTypeChange);
   fixtureForm.addEventListener("submit", handleAddFixture);
@@ -44,4 +45,17 @@ function cacheDom() {
   clearRigBtn = document.getElementById("clearRigBtn");
   universeUsageContainer = document.getElementById("universeUsage");
   powerSummaryContainer = document.getElementById("powerSummary");
+}
+
+function initFixtureSelects() {
+  fixtureTypeSelect.innerHTML = "";
+  FIXTURES.forEach((fx, index) => {
+    const option = document.createElement("option");
+    option.value = fx.id;
+    option.textContent = `${fx.brand} – ${fx.name}`;
+    if (index === 0) option.selected = true;
+    fixtureTypeSelect.appendChild(option);
+  });
+
+  populateModeSelect(getSelectedFixture());
 }
