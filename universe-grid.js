@@ -74,3 +74,21 @@ function updateHintWithUsedUniverses(universes) {
       ". You can enter any of these above.";
   }
 }
+
+function buildUniverseGridData(universe) {
+  const cells = new Array(512).fill(null).map(() => []);
+
+  if (!universe) return cells;
+
+  rig.forEach((item) => {
+    if (item.universe !== universe) return;
+    const start = Math.max(1, item.startAddress);
+    const end = Math.min(512, item.endAddress);
+
+    for (let ch = start; ch <= end; ch++) {
+      cells[ch - 1].push(item);
+    }
+  });
+
+  return cells;
+}
