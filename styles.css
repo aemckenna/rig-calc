@@ -3,6 +3,10 @@
   --bg-panel: #151821;
   --bg-panel-alt: #191c27;
   --border-subtle: #25293a;
+  --accent: #4da3ff;
+  --accent-soft: rgba(77, 163, 255, 0.15);
+  --accent-strong: #ffcb3c;
+  --danger: #ff4d6a;
 }
 
 *,
