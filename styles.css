@@ -1,5 +1,8 @@
 :root {
   --bg: #0b0c10;
+  --bg-panel: #151821;
+  --bg-panel-alt: #191c27;
+  --border-subtle: #25293a;
 }
 
 *,
