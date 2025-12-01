@@ -491,3 +491,20 @@ td:last-child {
   border: 1px solid rgba(255, 255, 255, 0.04);
   font-size: 0.55rem;
 }
+
+.universe-grid-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  user-select: none;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.universe-grid-cell--empty {
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.1);
+}
