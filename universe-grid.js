@@ -37,3 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+function loadRigFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (Array.isArray(data.rig)) {
+      rig = data.rig;
+    }
+  } catch (err) {
+    console.warn("Unable to load rig from storage:", err);
+  }
+}
