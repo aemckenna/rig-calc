@@ -131,3 +131,23 @@ function renderUniverseGrid(universe) {
       usedCount++;
       overlapCount++;
     }
+
+    cell.className = className;
+    cell.dataset.channel = chan;
+    cell.textContent = chan;
+
+    if (fixturesHere.length > 0) {
+      const lines = fixturesHere
+        .map(
+          (f) =>
+            `${f.fixtureName} (${f.modeName}), qty ${f.qty}, ` +
+            `addr ${f.startAddress}–${f.endAddress}`
+        )
+        .join("\n");
+      cell.title = `Channel ${chan}\n${lines}`;
+    } else {
+      cell.title = `Channel ${chan} (empty)`;
+    }
+
+    gridEl.appendChild(cell);
+  }
