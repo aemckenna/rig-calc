@@ -24,5 +24,136 @@
         </button>
       </div>
     </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2 id="add-fixture-heading">Add Fixtures</h2>
+        <p class="section-intro">
+          Choose a fixture, mode, quantity, and where it lives in DMX and power.
+        </p>
+
+        <form id="fixtureForm" class="form-grid">
+          <label>
+            Fixture Type
+            <select id="fixtureType" required></select>
+          </label>
+
+          <label>
+            Mode
+            <select id="fixtureMode" required></select>
+          </label>
+
+          <label>
+            Quantity
+            <input
+              type="number"
+              id="fixtureQty"
+              value="1"
+              min="1"
+              step="1"
+              required
+            />
+          </label>
+
+          <label>
+            DMX Universe
+            <input
+              type="number"
+              id="dmxUniverse"
+              value="1"
+              min="1"
+              step="1"
+              required
+            />
+          </label>
+
+          <label>
+            Start Address
+            <input
+              type="number"
+              id="startAddress"
+              value="1"
+              min="1"
+              max="512"
+              step="1"
+              required
+            />
+          </label>
+
+          <label>
+            Circuit Name
+            <input
+              type="text"
+              id="circuitName"
+              placeholder="e.g. SL 1, SR 20A, Dimmer 3"
+            />
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="button">Add to Rig</button>
+            <button type="button" id="clearRigBtn" class="button button-danger">
+              Clear Rig
+            </button>
+          </div>
+
+          <p id="formMessage" class="form-message"></p>
+        </form>
+      </section>
+
+      <section class="panel panel-wide">
+        <h2 id="rig-summary-heading">Rig Summary</h2>
+        <p class="section-intro">
+          This table shows each fixture line you've added, including DMX
+          footprint and power draw.
+        </p>
+
+        <div class="table-wrapper">
+          <table id="rigTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Fixture</th>
+                <th>Mode</th>
+                <th>Qty</th>
+                <th>Universe</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Total Channels</th>
+                <th>Total Watts</th>
+                <th>Circuit</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <p id="emptyRigMessage" class="muted">
+            No fixtures have been added yet. Start by adding a fixture above or
+            load the demo rig.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 id="dmx-heading">DMX Universe Usage</h2>
+        <p class="section-intro">
+          Each universe shows how many channels are used. Over 512 usage is
+          highlighted.
+        </p>
+        <div id="universeUsage" class="universe-usage"></div>
+      </section>
+
+      <section class="panel">
+        <h2 id="power-heading">Power Load by Circuit</h2>
+        <p class="section-intro">
+          Assuming 120V, amps are calculated as <code>watts / 120</code>.
+          Exceeding 15A or 20A is flagged.
+        </p>
+        <div id="powerSummary" class="power-summary"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small> DMX & Power Load Calculator. </small>
+    </footer>
   </body>
 </html>
