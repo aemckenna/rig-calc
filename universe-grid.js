@@ -143,6 +143,7 @@ function renderUniverseGrid(universe) {
   if (!universeGridContainer) return;
 
   universeGridContainer.innerHTML = "";
+  if (fixtureLegend) fixtureLegend.innerHTML = "";
 
   if (!universe) {
     const p = document.createElement("p");
@@ -152,6 +153,10 @@ function renderUniverseGrid(universe) {
     universeGridContainer.appendChild(p);
     return;
   }
+
+  const fixturesInUniverse = getFixturesForUniverse(universe);
+  const colorMap = buildFixtureColorMap(fixturesInUniverse);
+  renderFixtureLegend(universe, fixturesInUniverse, colorMap);
 
   const cells = buildUniverseGridData(universe);
 
@@ -172,10 +177,28 @@ function renderUniverseGrid(universe) {
     } else if (fixturesHere.length === 1) {
       className += " universe-grid-cell--used";
       usedCount++;
+
+      const line = fixturesHere[0];
+      const lineColor = colorMap.get(line.id);
+      if (lineColor) {
+        cell.style.background = lineColor;
+        cell.style.color = "#020305";
+      }
     } else {
       className += " universe-grid-cell--overlap";
       usedCount++;
       overlapCount++;
+
+      const line = fixturesHere[0];
+      const lineColor = colorMap.get(line.id);
+      if (lineColor) {
+        cell.style.backgroundImage = `linear-gradient(
+          135deg,
+          ${lineColor},
+          #ff4d6a
+        )`;
+        cell.style.color = "#020305";
+      }
     }
 
     cell.className = className;
@@ -186,8 +209,7 @@ function renderUniverseGrid(universe) {
       const lines = fixturesHere
         .map(
           (f) =>
-            `${f.fixtureName} (${f.modeName}), qty ${f.qty}, ` +
-            `addr ${f.startAddress}–${f.endAddress}`
+            `${f.fixtureName} (${f.modeName}), qty ${f.qty}, addr ${f.startAddress}–${f.endAddress}`
         )
         .join("\n");
       cell.title = `Channel ${chan}\n${lines}`;
