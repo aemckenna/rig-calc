@@ -50,3 +50,16 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(77, 163, 255, 0.12),
+    transparent 55%
+  );
+  opacity: 0.65;
+  pointer-events: none;
+}
