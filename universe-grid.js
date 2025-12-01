@@ -60,3 +60,17 @@ function getUsedUniverses() {
   });
   return Array.from(set).sort((a, b) => a - b);
 }
+
+function updateHintWithUsedUniverses(universes) {
+  if (!gridUniverseHint) return;
+
+  if (!universes || universes.length === 0) {
+    gridUniverseHint.textContent =
+      "No saved rig found. Build and save a rig on the main calculator page to see DMX usage here.";
+  } else {
+    gridUniverseHint.textContent =
+      "Universes in use: " +
+      universes.join(", ") +
+      ". You can enter any of these above.";
+  }
+}
