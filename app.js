@@ -371,6 +371,98 @@ function loadRigFromStorage() {
   }
 }
 
+function handleLoadDemoRig() {
+  rig = [
+    {
+      id: nextRigId++,
+      fixtureId: "chauvet_r2_spot",
+      fixtureName: "Chauvet - R2 Spot",
+      modeName: "Extended",
+      qty: 8,
+      universe: 1,
+      startAddress: 1,
+      endAddress: 1 + 8 * 21 - 1,
+      channelsPerFixture: 21,
+      totalChannels: 8 * 21,
+      wattsPerFixture: 240,
+      totalWatts: 8 * 240,
+      circuitName: "SL Spots",
+      voltage: VOLTAGE,
+    },
+    {
+      id: nextRigId++,
+      fixtureId: "chauvet_r3_wash",
+      fixtureName: "Chauvet - R3 Wash",
+      modeName: "Detailed",
+      qty: 4,
+      universe: 1,
+      startAddress: 169,
+      endAddress: 169 + 4 * 62 - 1,
+      channelsPerFixture: 62,
+      totalChannels: 4 * 62,
+      wattsPerFixture: 660,
+      totalWatts: 4 * 660,
+      circuitName: "SR Washes",
+      voltage: VOLTAGE,
+    },
+    {
+      id: nextRigId++,
+      fixtureId: "astera_hyperion_tube",
+      fixtureName: "Astera - Hyperion Tube",
+      modeName: "DIM RGBAW DIM RGBAW",
+      qty: 8,
+      universe: 2,
+      startAddress: 1,
+      endAddress: 1 + 8 * 48 - 1,
+      channelsPerFixture: 48,
+      totalChannels: 8 * 48,
+      wattsPerFixture: 92,
+      totalWatts: 8 * 92,
+      circuitName: "Upstage Tubes",
+      voltage: VOLTAGE,
+    },
+    {
+      id: nextRigId++,
+      fixtureId: "chauvet_r2x_beam",
+      fixtureName: "Chauvet - R2X Beam",
+      modeName: "Expanded",
+      qty: 6,
+      universe: 2,
+      startAddress: 385,
+      endAddress: 385 + 6 * 18 - 1,
+      channelsPerFixture: 18,
+      totalChannels: 6 * 18,
+      wattsPerFixture: 413,
+      totalWatts: 6 * 413,
+      circuitName: "Downstage Beams",
+      voltage: VOLTAGE,
+    },
+    {
+      id: nextRigId++,
+      fixtureId: "elation_sixpar_200",
+      fixtureName: "Elation - Sixpar 200",
+      modeName: "12-ch RGBW",
+      universe: 3,
+      startAddress: 1,
+      endAddress: 1 + 8 * 12 - 1,
+      channelsPerFixture: 12,
+      totalChannels: 8 * 12,
+      wattsPerFixture: 150,
+      totalWatts: 8 * 150,
+      circuitName: "Floor PARs",
+      voltage: VOLTAGE,
+    },
+  ];
+
+  saveRigToStorage();
+  renderAll();
+  clearFormMessage();
+  showFormMessage("Demo rig loaded.", false);
+
+  dmxUniverseInput.value = 3;
+  startAddressInput.value = getNextAddressForUniverse(3);
+}
+
 function handleClearRig() {
   if (!confirm("Clear all fixtures from the rig?")) return;
   rig = [];
