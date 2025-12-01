@@ -371,6 +371,15 @@ function loadRigFromStorage() {
   }
 }
 
+function handleClearRig() {
+  if (!confirm("Clear all fixtures from the rig?")) return;
+  rig = [];
+  nextRigId = 1;
+  saveRigToStorage();
+  renderAll();
+  clearFormMessage();
+}
+
 function renderAll() {
   renderRigTable();
   renderUniverseUsage();
