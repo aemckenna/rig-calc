@@ -339,6 +339,22 @@ function renderPowerSummary() {
   });
 }
 
+/* Storage */
+
+const STORAGE_KEY = "dmx_power_calc_rig";
+
+function saveRigToStorage() {
+  try {
+    const payload = {
+      rig,
+      nextRigId,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  } catch (err) {
+    console.warn("Unable to save rig to localStorage:", err);
+  }
+}
+
 function renderAll() {
   renderRigTable();
   renderUniverseUsage();
