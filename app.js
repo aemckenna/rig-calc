@@ -122,7 +122,7 @@ function handleAddFixture(event) {
   if (endAddress > 512) {
     showFormMessage(
       `Channel footprint (ends at ${endAddress}) exceeds 512 in universe ${universe}. Adjust start, mode, or quantity.`,
-      true
+      true,
     );
     return;
   }

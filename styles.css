@@ -126,7 +126,10 @@ body {
   background: linear-gradient(135deg, var(--accent), #7dd3ff);
   color: #05060a;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    filter 0.08s ease;
 }
 
 .button:hover {
@@ -191,7 +194,10 @@ body {
   font-size: 0.9rem;
   color: var(--text);
   outline: none;
-  transition: border-color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition:
+    border-color 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.1s ease;
 }
 
 .form-grid select:focus,
@@ -287,7 +293,9 @@ td:last-child {
   font-size: 1rem;
   padding: 0.1rem 0.2rem;
   border-radius: 6px;
-  transition: background 0.1s ease, color 0.1s ease;
+  transition:
+    background 0.1s ease,
+    color 0.1s ease;
 }
 
 .delete-row-btn:hover {

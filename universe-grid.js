@@ -13,3 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
   gridUniverseHint = document.getElementById("gridUniverseHint");
 
   loadRigFromStorage();
+
+    const usedUniverses = getUsedUniverses();
+  if (usedUniverses.length > 0) {
+    const firstUniverse = usedUniverses[0];
+    gridUniverseInput.value = String(firstUniverse);
+    updateHintWithUsedUniverses(usedUniverses);
+    renderUniverseGrid(firstUniverse);
+  } else {
+    updateHintWithUsedUniverses([]);
+    renderUniverseGrid(null);
+  }
