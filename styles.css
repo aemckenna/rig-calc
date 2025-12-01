@@ -1,3 +1,7 @@
+:root {
+  --bg: #0b0c10;
+}
+
 *,
 *::before,
 *::after {
