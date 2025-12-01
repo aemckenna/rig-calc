@@ -23,8 +23,8 @@ let powerSummaryContainer;
 document.addEventListener("DOMContentLoaded", () => {
   cacheDom();
   initFixtureSelects();
-  renderAll();
   loadRigFromStorage();
+  renderAll();
 
   fixtureTypeSelect.addEventListener("change", handleFixtureTypeChange);
   fixtureForm.addEventListener("submit", handleAddFixture);
