@@ -331,3 +331,18 @@ tbody tr:hover {
   border: 1px solid rgba(255, 255, 255, 0.04);
   padding: 0.55rem 0.65rem 0.6rem;
 }
+
+.power-badge--ok {
+  background: rgba(77, 255, 178, 0.12);
+  color: #7dffc1;
+}
+
+.power-badge--warn {
+  background: rgba(255, 204, 91, 0.14);
+  color: #ffdd8a;
+}
+
+.power-badge--over {
+  background: rgba(255, 77, 106, 0.18);
+  color: #ffb1bc;
+}
