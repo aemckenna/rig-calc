@@ -476,3 +476,18 @@ td:last-child {
 .legend-swatch--overlap {
   background: linear-gradient(135deg, var(--danger), #ff4d6a);
 }
+
+.universe-grid-container {
+  margin-top: 0.9rem;
+}
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 2px;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(5, 7, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.55rem;
+}
