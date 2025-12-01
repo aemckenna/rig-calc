@@ -74,3 +74,13 @@ body {
   font-size: 1.1rem;
   letter-spacing: 0.03em;
 }
+
+.section-intro {
+  margin: 0.4rem 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.panel-wide {
+  grid-column: 1 / -1;
+}
