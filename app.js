@@ -218,6 +218,59 @@ function calculateUniverseUsage() {
   return usage;
 }
 
+function renderUniverseUsage() {
+  universeUsageContainer.innerHTML = "";
+
+  const usage = calculateUniverseUsage();
+  const universes = Object.keys(usage).sort((a, b) => Number(a) - Number(b));
+
+  if (universes.length === 0) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = "No universes in use yet. Add fixtures to see DMX usage.";
+    universeUsageContainer.appendChild(p);
+    return;
+  }
+
+  universes.forEach((universe) => {
+    const used = usage[universe];
+    const percent = Math.min((used / 512) * 100, 100);
+    const over = used > 512;
+
+    const row = document.createElement("div");
+    row.className = "universe-row";
+
+    const label = document.createElement("div");
+    label.className = "universe-label";
+    label.innerHTML = `
+      <span>Universe ${universe}</span>
+      <span>${used} / 512 channels</span>
+    `;
+
+    const bar = document.createElement("div");
+    bar.className = "universe-bar";
+
+    const fill = document.createElement("div");
+    fill.className = "universe-bar-fill";
+    if (over) fill.classList.add("universe-bar-fill--over");
+    fill.style.width = `${percent}%`;
+
+    bar.appendChild(fill);
+    row.appendChild(label);
+    row.appendChild(bar);
+
+    if (over) {
+      const warn = document.createElement("p");
+      warn.className = "universe-warning";
+      warn.textContent =
+        "Over 512 channels in this universe. Reduce load or split fixtures.";
+      row.appendChild(warn);
+    }
+
+    universeUsageContainer.appendChild(row);
+  });
+}
+
 function renderAll() {
   renderRigTable();
   renderUniverseUsage();
