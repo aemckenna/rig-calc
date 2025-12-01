@@ -182,7 +182,9 @@ function renderRigTable() {
       <td>${escapeHtml(item.circuitName)}</td>
       <td>
         <button class="delete-row-btn" data-id="${item.id}" title="Remove line">
-          ×
+          x
         </button>
       </td>
     `;
+        rigTableBody.appendChild(tr);
+  });
