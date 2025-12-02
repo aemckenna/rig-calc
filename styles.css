@@ -489,7 +489,8 @@ td:last-child {
   border-radius: 8px;
   background: rgba(5, 7, 18, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  font-size: 0.55rem;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .universe-grid-cell {
@@ -502,6 +503,7 @@ td:last-child {
   user-select: none;
   overflow: hidden;
   text-overflow: clip;
+  border: 1px solid rgba(0, 0, 0, 0.6);
 }
 
 .universe-grid-cell--empty {
