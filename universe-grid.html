@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Universe Grid View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Visual grid view for DMX universes, showing used and overlapping channels."
+    />
+  </head>
+    <body>
+    <header class="site-header">
+        <div class="site-header-inner">
+        <div>
+            <h1>Universe Grid View</h1>
+            <p class="tagline">
+            Visualize DMX channel usage for a single universe, based on the saved rig.
+            </p>
+       </div>
+        <a href="index.html" class="button button-secondary">Back to Calculator</a>
+        </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-wide">
+        <h2 id="universe-grid-heading">Universe Grid</h2>
+        <p class="section-intro">
+          Select a universe to see all 512 channels in a grid.
+        </p>
+
+        <form id="gridUniverseForm" class="form-grid" style="margin-top: 0.5rem;">
+          <label>
+            Universe
+            <input
+              type="number"
+              id="gridUniverseInput"
+              min="1"
+              step="1"
+              value="1"
+              required
+            />
+          </label>
+
+            <div class="form-actions">
+            <button type="submit" class="button">
+              Show Universe
+            </button>
+          </div>
+        </form>
+
+        <div class="universe-grid-legend">
+          <span class="legend-item">
+            <span class="legend-swatch legend-swatch--empty"></span> Empty
+          </span>
+          <span class="legend-item">
+            <span class="legend-swatch legend-swatch--used"></span> Used
+          </span>
+          <span class="legend-item">
+            <span class="legend-swatch legend-swatch--overlap"></span> Overlap
+          </span>
+        </div>
+        <div id="universeGrid" class="universe-grid-container"></div>
+        <div id="fixtureLegend" class="universe-grid-legend"></div>
+        </div>
+      </section>
+    </main>
+
+        <footer class="site-footer">
+      <small>
+        Universe Grid View
+    </footer>
+    <script type="module" src="universe-grid.js"></script>
+</body>
+</html>
